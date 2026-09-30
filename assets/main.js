@@ -13,9 +13,7 @@
   /* ---------- 性能兜底 ---------- */
   try {
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
-    var lowMem = navigator.deviceMemory && navigator.deviceMemory <= 4;
-    if (reduced || lowCores || lowMem) root.classList.add('no-motion');
+    if (reduced) root.classList.add('no-motion');
   } catch (e) {}
   var noMotion = root.classList.contains('no-motion');
 
@@ -123,6 +121,7 @@
         if (r.bottom < -240 || r.top > vh + 240) return;
         var speed = parseFloat(el.getAttribute('data-speed')) || 0.07;
         var limit = parseFloat(el.getAttribute('data-limit')) || 30;
+        if (window.innerWidth < 720) limit = limit * 0.55;
         var center = r.top + r.height / 2 - vh / 2;
         var shift = Math.max(-limit, Math.min(limit, -center * speed));
         el.style.transform = 'translate3d(0,' + shift.toFixed(1) + 'px,0)';
