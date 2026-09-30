@@ -36,10 +36,10 @@
   --star-2: rgba(255,255,255,.36);
   --glass: rgba(10,21,36,.72);
   --glass-line: rgba(255,255,255,.20);
-  --lg-top: rgba(255,255,255,.13);
-  --lg-bottom: rgba(255,255,255,.03);
-  --lg-tint: rgba(9,17,29,.32);
-  --lg-rim: rgba(255,255,255,.72);
+  --lg-top: rgba(255,255,255,.17);
+  --lg-bottom: rgba(255,255,255,.04);
+  --lg-tint: rgba(9,17,29,.42);
+  --lg-rim: rgba(255,255,255,.80);
   --lg-shadow: rgba(0,0,0,.36);
 }
 
@@ -67,10 +67,10 @@
   --star-2: rgba(14,22,38,.10);
   --glass: rgba(255,255,255,.82);
   --glass-line: rgba(14,22,38,.16);
-  --lg-top: rgba(255,255,255,.65);
-  --lg-bottom: rgba(255,255,255,.16);
-  --lg-tint: rgba(255,255,255,.55);
-  --lg-rim: rgba(255,255,255,.95);
+  --lg-top: rgba(255,255,255,.82);
+  --lg-bottom: rgba(255,255,255,.21);
+  --lg-tint: rgba(255,255,255,.70);
+  --lg-rim: rgba(255,255,255,.98);
   --lg-shadow: rgba(20,32,54,.18);
 }
 
@@ -402,6 +402,14 @@ button { font: inherit; }
   width: fit-content;
 }
 .hero-honor svg { width: 14px; height: 14px; color: var(--gold-2); flex: none; }
+/* 极淡的金色暗示：约为原始强度的 20% */
+.hero-honor.lg::after {
+  background: linear-gradient(180deg,
+    rgba(251,227,174,.18) 0%,
+    rgba(255,255,255,.06) 30%,
+    rgba(255,255,255,.04) 64%,
+    rgba(240,196,113,.16) 100%);
+}
 .hero-honor b { font-weight: 700; }
 @media (max-width: 720px) {
   .hero-honor { font-size: 11.5px; padding: 8px 14px; margin-top: 16px; }
