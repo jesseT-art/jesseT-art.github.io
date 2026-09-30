@@ -554,6 +554,9 @@ button { font: inherit; }
 .contact-cta { margin-top: clamp(34px, 5vw, 56px); }
 
 /* ============ Footer ============ */
+.visit-stat { font-variant-numeric: tabular-nums; }
+.visit-stat b { font-weight: 600; color: var(--ink-2); }
+
 .footer {
   border-top: 1px solid var(--line); padding: 26px var(--pad);
   display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
