@@ -34,6 +34,8 @@
   --gold-ink: #2A1F0C;
   --star: rgba(255,255,255,.80);
   --star-2: rgba(255,255,255,.36);
+  --glass: rgba(10,21,36,.72);
+  --glass-line: rgba(255,255,255,.20);
 }
 
 :root[data-theme="light"] {
@@ -58,6 +60,8 @@
   --gold-ink: #2A1F0C;
   --star: rgba(14,22,38,.20);
   --star-2: rgba(14,22,38,.10);
+  --glass: rgba(255,255,255,.82);
+  --glass-line: rgba(14,22,38,.16);
 }
 
 * { box-sizing: border-box; }
@@ -388,10 +392,22 @@ button { font: inherit; }
 @media (max-width: 720px) {
   .work-meta { grid-template-columns: 44px 1fr; }
   .work-tag { grid-column: 2; text-align: left; margin-top: 6px; }
-  /* 手机端没有 hover，把「进入项目」常驻，视觉与电脑悬停一致 */
-  .work-media::after { opacity: .2; }
-  .work-enter { display: grid; opacity: 1; transform: none; }
-  .work-enter span { padding: 11px 22px; font-size: 12px; letter-spacing: .14em; }
+  /* 手机端：图片不遮罩，只在右下角放一枚小胶囊提示可点 */
+  .work-media::after { display: none; }
+  .work-enter {
+    inset: auto 12px 12px auto;
+    display: block; opacity: 1; transform: none;
+  }
+  .work-enter span {
+    padding: 9px 15px; font-size: 11px; letter-spacing: .12em;
+    background: var(--glass);
+    color: var(--ink);
+    border: 1px solid var(--glass-line);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.28);
+  }
+  .work-enter span svg { width: 11px; height: 11px; }
   .work-enter-mobile { display: none; }
 }
 
